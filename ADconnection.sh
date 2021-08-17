@@ -833,9 +833,12 @@ UbuntU(){
 export HOSTNAME
 myhost=$( hostname | cut -d '.' -f1 )
 clear
-sudo apt install adcli=0.8.2-1 -y --allow-downgrades
+
+wget http://security.ubuntu.com/ubuntu/pool/universe/a/adcli/adcli_0.8.2-1ubuntu1.2_amd64.deb
+sudo apt install ./adcli_0.8.2-1ubuntu1.2_amd64.deb -f -y
+
 sudo echo "${NUMBER}Installing packages do no abort!.......${END}"
-if ! sudo apt-get -qq install realmd adcli sssd ntp curl -y && sudo apt-get -qq install -f -y
+if ! sudo apt-get -qq install realmd sssd ntp curl -y && sudo apt-get -qq install -f -y
 then
 echo "${RED_TEXT}Failed installing packages, please resolve dpkg and try again ${END}"
 exit 1
@@ -1094,7 +1097,7 @@ myhost=$( hostname | cut -d '.' -f1 )
 clear
 sudo apt install adcli=0.8.2-1 -y --allow-downgrades
 sudo echo "${NUMBER}Installing packages do no abort!.......${END}"
-if ! sudo apt-get -qq install realmd adcli sssd ntp curl -y && sudo apt-get -qq install -f -y
+if ! sudo apt-get -qq install realmd sssd ntp curl -y && sudo apt-get -qq install -f -y
 then
 echo "${RED_TEXT}Failed installing packages, please resolve dpkg and try again ${END}"
 exit 1
@@ -1352,7 +1355,7 @@ myhost=$( hostname | cut -d '.' -f1 )
 clear
 sudo echo "${RED_TEXT}Installing packages do no abort!.......${END}"
 sudo apt install adcli=0.8.2-1 -y --allow-downgrades
-sudo apt-get -qq install realmd adcli sssd -y
+sudo apt-get -qq install realmd sssd -y
 sudo apt-get -qq install ntp -y
 sudo apt-get -qq install -y sssd-tools samba-common krb5-user curl
 sudo apt-get -qq install -f -y
@@ -1582,11 +1585,11 @@ sudo apt install adcli=0.8.2-1 -y --allow-downgrades
 sudo apt-get -qq update
 sudo apt-get -qq install libsss-sudo -y
 sudo apt-get -qq install adcli -y
-sudo apt-get -qq install realmd adcli sssd -y
+sudo apt-get -qq install realmd sssd -y
 sudo apt-get -qq install ntp curl -y
 sudo apt-get -qq install policykit-1 -y
 sudo mkdir -p /var/lib/samba/private
-sudo apt-get -qq install realmd adcli sssd -y
+sudo apt-get -qq install realmd sssd -y
 sudo apt-get -qq install ntp -y
 sudo apt-get -qq install -f -y
 clear
@@ -1675,11 +1678,11 @@ sudo echo "${RED_TEXT}Installing packages do no abort!.......${END}"
 sudo apt install adcli=0.8.2-1 -y --allow-downgrades
 sudo apt-get -qq update
 sudo apt-get -qq install libsss-sudo -y
-sudo apt-get -qq install realmd adcli sssd curl -y
+sudo apt-get -qq install realmd sssd curl -y
 sudo apt-get -qq install ntp -y
 sudo apt-get -qq install policykit-1 -y
 sudo mkdir -p /var/lib/samba/private
-sudo apt-get -qq install realmd adcli sssd -y
+sudo apt-get -qq install realmd sssd -y
 sudo apt-get -qq install ntp -y
 sudo apt-get -qq install -f
 clear
